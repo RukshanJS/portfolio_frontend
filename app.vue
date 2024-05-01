@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>{{ name }}</h1>
+    <div v-if="pending">Loading...</div>
     <ul>
       <li v-for="project in projects" :key="project.name">
         <h2>{{ project.name }}</h2>
@@ -11,18 +12,10 @@
 </template>
 
 <script setup>
+import { useFetch } from '#imports';
+
 const name = 'RUKSHAN JS';
-const projects = [
-  {
-    name: 'Project 1',
-    description: 'This is project 1',
-  },
-  {
-    name: 'Project 2',
-    description: 'This is project 2',
-  },
-];
+const { data: projects, pending, error } = useFetch('http://localhost:5000/projects');
 </script>
 
-<style>
-</style>
+<style></style>

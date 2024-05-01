@@ -12,8 +12,6 @@
 </template>
 
 <script setup>
-import { useFetch } from '#imports';
-
 const name = 'RUKSHAN JS';
 const { data: projects, pending, error } = useFetch('http://localhost:5000/projects');
 </script>

@@ -41,7 +41,11 @@
     <form @submit.prevent="deleteProject">
       <div>
         <label for="name">Project Name:</label>
-        <input type="text" v-model="deleteProjectForm.id" id="name" required />
+        <select v-model="deleteProjectForm.id" id="projectId" required>
+          <option v-for="project in projects" :key="project._id" :value="project._id">
+            {{ project.name }}
+          </option>
+        </select>
         <button type="submit">Delete Project</button>
       </div>
     </form>
